@@ -30,7 +30,6 @@ jobs:
     - name: Download Coverity
       if: steps.cache-primes.outputs.cache-hit != 'true'
       run: |
-         mkdir ~/.coverity/analysis
          cd ~/.coverity/analysis
          curl --user gautam:${{ secrets.COVERITY_PASSPHRASE }} -o license.dat $COVERITY_SERVER_URL/downloadFile.htm?fn=license.dat
 
