@@ -35,4 +35,4 @@ jobs:
          curl --user gautam:${{ secrets.COVERITY_PASSPHRASE }} -o license.dat $COVERITY_SERVER_URL/downloadFile.htm?fn=license.dat
 
     - name: ls to see
-      run: ls -als && cd coverity && ls -als
+      run: ls -als && cd coverity/ && ls -als
