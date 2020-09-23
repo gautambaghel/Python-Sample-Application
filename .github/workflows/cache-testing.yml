@@ -26,7 +26,6 @@ jobs:
         key: ubuntu-coverity
 
     - name: Download Coverity
-      if: steps.cache-coverity.outputs.cache-hit != 'true'
       run:
          mkdir coverity && cd coverity 
          curl --user gautam:${{ secrets.COVERITY_PASSPHRASE }} -o license.dat $COVERITY_SERVER_URL/downloadFile.htm?fn=license.dat
