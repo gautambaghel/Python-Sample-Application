@@ -22,12 +22,16 @@ jobs:
       id: cache-coverity
       uses: actions/cache@v2
       with:
-        path: coverity
-        key: ubuntu-coverity
+        path: |
+           ~/.coverity/analysis
+           idir
+        key: ubuntu-coverity-1
 
     - name: Download Coverity
-      run:
-         mkdir coverity && cd coverity &&
+      if: steps.cache-primes.outputs.cache-hit != 'true'
+      run: |
+         mkdir ~/.coverity/analysis
+         cd ~/.coverity/analysis
          curl --user gautam:${{ secrets.COVERITY_PASSPHRASE }} -o license.dat $COVERITY_SERVER_URL/downloadFile.htm?fn=license.dat
 
     - name: ls to see
