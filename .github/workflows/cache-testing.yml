@@ -28,7 +28,7 @@ jobs:
         key: ubuntu-coverity-1
 
     - name: Download Coverity
-      if: steps.cache-primes.outputs.cache-hit != 'true'
+      if: steps.ubuntu-coverity-1.outputs.cache-hit != 'true'
       run: |
          mkdir coverity/
          cd coverity/
